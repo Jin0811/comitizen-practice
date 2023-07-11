@@ -1,95 +1,124 @@
 # Git commit 规范配置
 
-## 相关教程
+## 1 相关教程
+
 - [视频 git commit 最佳实践，commitizen + husky + commitlint 规范化校验](https://www.bilibili.com/video/BV193411C7XE/?spm_id_from=333.337.search-card.all.click&vd_source=3284d439dd5569b325f17bd1d33a1739)
-- [GitHub 上面视频中的代码和README文档](https://github.com/dev-zuo/commitizen-practice-demo)
+- [GitHub 上面视频中的代码和 README 文档](https://github.com/dev-zuo/commitizen-practice-demo)
 - [掘金 2023 年了，还有前端人不知道 commit 规范 ？](https://juejin.cn/post/7212597327579037756#heading-13)
-- [CSDN Git规范介绍](https://blog.csdn.net/qq_39249422/article/details/122984620)
+- [CSDN Git 规范介绍](https://blog.csdn.net/qq_39249422/article/details/122984620)
 
-## 配置过程
+## 2 配置过程
+
+## 2.1 创建 vue 项目
+
+创建一个 vue 项目，这里我选择了 Default Vue2，自动配置了 eslint，创建了 git 仓库。如果是手动创建的，需要自行初始化 git 仓库，配置 eslint 等第三方库
+
 ```js
-// 创建一个vue项目，这里我选择了Default Vue2，自动配置了eslint，创建了git仓库
-// 如果是手动创建的，需要自行初始化git仓库，配置eslint等
 vue create comitizen-practice
+```
 
+## 2.2 全局安装规范化提交插件 commitizen cz-conventional-changelog
 
-// 全局安装规范化提交插件 commitizen cz-conventional-changelog
+```js
 npm install -g commitizen cz-conventional-changelog
+```
 
+## 2.3 生成配置文件
 
+配置文件不配置的话，会无法执行`git cz`命令
+
+```js
 // 命令创建：执行以下命令，创建一个配置文件，命令创建的文件编码不是utf-8的，建议修改为utf-8，但是不修改暂时也未出现报错
-// 手动创建：这个配置文件也可以手动进行创建：C:\Users\你的电脑用户名\.czrc
-// 手动创建完成之后，在其中写入：{"path": "cz-conventional-changelog"}
 echo '{"path": "cz-conventional-changelog"}' > ~/.czrc
-// 再在package.json当中添加如下配置：
-`
-"config": {
-  "commitizen": {
-    "path": "node_modules/cz-conventional-changelog"
-  }
-},
-`
 
+// 手动创建：这个配置文件也可以手动进行创建
+// 路径 C:\Users\你的电脑用户名\.czrc
+// 内容 {"path": "cz-conventional-changelog"}
+```
 
+## 2.4 husky 安装和配置
+
+```js
 // 安装 husky
 npm install husky --save-dev
-
 
 // 创建husky配置
 // 方法一：
 npx husky install
-// 方法二：配置 package.json, scripts："prepare": "husky install"
+// 方法二：先配置 package.json, scripts："prepare": "husky install"，再执行以下命令
 npm run prepare
+```
 
+## 2.5 添加 husky 钩子
 
+```js
 // 添加 pre-commit 钩子
 npx husky add .husky/pre-commit "echo '[HOOS] pre-commit begin'"
 // 添加 pre-push 钩子
 npx husky add .husky/pre-push "echo '[HOOS] pre-push begin'"
-
-
-// 安装配置 commitlint
-npm install -D @commitlint/cli @commitlint/config-conventional
-// 创建commitlint.config.js文件，与package.json同级
-module.exports = { extends: ['@commitlint/config-conventional'] }
 // 添加 commit-msg 钩子
 npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
+```
 
+## 2.6 commitlint 安装配置
 
-// 自定义提交说明，安装cz-customizable commitlint-config-cz
+```js
+npm install -D @commitlint/cli @commitlint/config-conventional
+
+// 创建commitlint.config.js文件，与package.json同级
+module.exports = { extends: ["@commitlint/config-conventional"] }
+```
+
+## 2.7 自定义提交说明
+
+注意：这里存在一些坑，尚未解决，当配置了`cz-customizable`和`commitlint-config-cz`之后，执行`git cz`可以有漂亮的图标和汉字提示，但是却失去了对`git commit -m "信息"`的拦截，导致了可以提交不规范的 commit 信息，失去了基本功能，因此，暂时放弃此方案，采用另外一种方案，可以进行拦截，且可以进行汉字提示，只是没有漂亮的图标
+
+```js
 npm install cz-customizable -D
-npm install commitlint-config-cz --save-dev
+
 // 创建.cz-config.js文件，与package.json同级
 // 内容参考此项目当中的.cz-config.js文件
+// 或者参考官方文档
+// https://github.com/leoforfree/cz-customizable/blob/master/.cz-config.js
 
-// 修改commitlint.config.js文件，内容如下：
-// 注意：如果不进行配置，则无法进行自定义的提交
-module.exports = {
-  extends: [
-    "cz"
-  ]
-};
-// 在package.json当中添加以下配置：
+// 修改package.json当中的config字段
 "config": {
   "commitizen": {
-    // 未使用cz-customizable
-    // "path": "./node_modules/cz-conventional-changelog"
-
-    // 使用了cz-customizable
     "path": "node_modules/cz-customizable"
   }
 },
-
-
-// 配置代码在push之前进行eslint校验
-npm install lint-staged -D
-// 修改.husky\pre-push文件，修改内容为：
-`
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-echo '[HOOS] pre-push begin'
-npm run lint
-`
-// 创建.eslintrc.js文件，与package.json同级，内容参考此项目当中的.eslintrc.js文件
 ```
+
+## 2.8 配置代码在 push 之前进行 eslint 校验
+
+```js
+// 这里分为两种eslint校验，eslint和lint-staged
+
+// 第一种：eslint方式，会对整个项目进行eslint校验
+// 在package.json的scripts中添加：
+"lint": "vue-cli-service lint"
+// 在.husky\pre-push文件的最后一行添加：
+npm run lint
+
+// 第二种：lint-staged方式，只会对本次提交的文件进行eslint校验
+// 安装
+npm install lint-staged -D
+// 在package.json的scripts中添加：
+"lintStaged": "lint-staged"
+// 在package.json中添加：
+"lint-staged": {
+  "*.js": [
+    "eslint --fix"
+  ]
+  // "*.js": "项目中所有的 js 文件",
+  // "**/*.js": "项目中所有的 js 文件",
+  // "src/*.js": "src目录中所有的 js 文件",
+  // "src/**/*.js": "src文件夹中所有的 js 文件"
+}
+// 在.husky\pre-push文件的最后一行添加：
+npm run lintStaged
+```
+
+## 2.9 配置 eslint
+
+创建.eslintrc.js 文件，与 package.json 同级，内容参考此项目当中的.eslintrc.js 文件
