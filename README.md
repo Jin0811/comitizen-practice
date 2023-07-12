@@ -34,6 +34,24 @@ echo '{"path": "cz-conventional-changelog"}' > ~/.czrc
 // 手动创建：这个配置文件也可以手动进行创建
 // 路径 C:\Users\你的电脑用户名\.czrc
 // 内容 {"path": "cz-conventional-changelog"}
+
+// 重要的事情说三遍：
+// 注意：当我们使用cz-customizable的时候，我们其实是不需要执行这个命令的
+// 注意：当我们使用cz-customizable的时候，我们其实是不需要执行这个命令的
+// 注意：当我们使用cz-customizable的时候，我们其实是不需要执行这个命令的
+
+// 使用这个命令使commitizen支持angular的 Commit message 格式
+// 这个命令会安装cz-conventional-changelog，并且配置commitizen的path
+commitizen init cz-conventional-changelog --save --save-exact
+// 执行下面的命令之后，package.json会新增以下的内容：
+"config": {
+  "commitizen": {
+    "path": "./node_modules/cz-conventional-changelog"
+  }
+},
+"devDependencies":{
+  "cz-conventional-changelog": "^3.1.0"
+}
 ```
 
 ## 2.4 husky 安装和配置
@@ -82,6 +100,7 @@ npm install cz-customizable -D
 // https://github.com/leoforfree/cz-customizable/blob/master/.cz-config.js
 
 // 修改package.json当中的config字段
+// 这里如果没有执行2.3当中的commitizen init cz-conventional-changelog --save --save-exact命令，是没有这个配置的，可以自行添加
 "config": {
   "commitizen": {
     "path": "node_modules/cz-customizable"
