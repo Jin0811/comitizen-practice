@@ -4,7 +4,7 @@ module.exports = {
 	tabWidth: 2, // 缩进空格数，一个Tab等于2个空格
 	semi: true, // 在语句末尾打印分号
 	singleQuote: false, // 使用单引号而不是双引号
-	vueIndentScriptAndStyle: true, // Vue文件脚本和样式标签缩进
+	vueIndentScriptAndStyle: false, // Vue文件脚本和样式标签缩进
 	quoteProps: "as-needed", // 更改引用对象属性的时间 可选值"<as-needed|consistent|preserve>"
 	jsxSingleQuote: false, // 在JSX中使用单引号而不是双引号
 	trailingComma: "es5", // 多行时尽可能打印尾随逗号。（例如，单行数组永远不会出现逗号结尾。） 可选值"<none|es5|all>"，默认none
