@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+echo '[HOOS] commit-msg begin'
+
 npx --no-install commitlint --edit $1
