@@ -17,7 +17,7 @@ module.exports = {
 		quotes: 2, // 报错-未使用双引号
 		semi: 1, // 警告-无分号
 		"no-console": 0, // 警告-console.log
-		"no-debugger": 2, // 警告-debugger
+		"no-debugger": 0, // 警告-debugger
 		"no-alert": 2, // 报错-alert
 		"no-mixed-spaces-and-tabs": 2, // 报错-Sapce和Tab混用
 		"no-multiple-empty-lines": 1, // 警告-不允许多个空行
