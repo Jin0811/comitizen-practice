@@ -28,10 +28,10 @@ npm install -g commitizen cz-conventional-changelog
 配置文件不配置的话，会无法执行`git cz`命令
 
 ```js
-// 命令创建：执行以下命令，创建一个配置文件，命令创建的文件编码不是utf-8的，建议修改为utf-8，但是不修改暂时也未出现报错
+// 命令创建：执行以下命令，创建一个配置文件，命令创建的文件编码不是utf-8的，请修改为utf-8编码格式，编码格式错误的话某些终端里面会报错
 echo '{"path": "cz-conventional-changelog"}' > ~/.czrc
 
-// 手动创建：这个配置文件也可以手动进行创建
+// 手动创建：这个配置文件也可以手动进行创建，手动创建的时候，编码也请选择utf-8
 // 路径 C:\Users\你的电脑用户名\.czrc
 // 内容 {"path": "cz-conventional-changelog"}
 
