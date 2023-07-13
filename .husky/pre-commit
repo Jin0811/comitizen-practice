@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo '[HOOS] pre-commit begin'
+echo -e '\e[0;32m [HOOKS] pre-commit begin\e[0m'

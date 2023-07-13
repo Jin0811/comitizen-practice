@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo '[HOOS] pre-push begin'
+echo -e '\e[0;32m [HOOKS] pre-push begin\e[0m'
 
 npm run lint
+
+echo -e '\e[0;32m ESlint校验通过\e[0m'
