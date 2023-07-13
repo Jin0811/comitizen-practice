@@ -61,6 +61,7 @@ commitizen init cz-conventional-changelog --save --save-exact
 npm install husky --save-dev
 
 // 创建husky配置
+// 注意：下面这两个命令，每一次新拉取项目，都需要执行一次，因为husky不会提交到远程仓库当中
 // 方法一：
 npx husky install
 // 方法二：先配置 package.json, scripts："prepare": "husky install"，再执行以下命令
@@ -126,15 +127,16 @@ npm install lint-staged -D
 "lintStaged": "lint-staged"
 // 在package.json中添加：
 "lint-staged": {
-  "*.js": [
-    "eslint --fix"
-  ]
+	"src/**/*.{vue,js,ts,jsx,tsx}": [
+		"eslint"
+	]
+  // 如果这里eslint不能指定范围，如果指定了目录，那lint-staged也就失去了校验暂存区文件的功能
   // "*.js": "项目中所有的 js 文件",
   // "**/*.js": "项目中所有的 js 文件",
   // "src/*.js": "src目录中所有的 js 文件",
   // "src/**/*.js": "src文件夹中所有的 js 文件"
-}
-// 在.husky\pre-push文件的最后一行添加：
+},
+// 在.husky/pre-commit文件的最后一行添加：
 npm run lintStaged
 ```
 
