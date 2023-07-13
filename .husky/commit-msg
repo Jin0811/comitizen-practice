@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo '[HOOKS] commit-msg begin'
+echo -e '\e[0;32m[HOOKS] commit-msg begin\e[0m'
 
 npx --no-install commitlint --edit $1
 
-echo -e '\e[0;32m Commit信息校验通过\e[0m'
+echo -e '\e[0;32mCommit信息校验通过\e[0m'
