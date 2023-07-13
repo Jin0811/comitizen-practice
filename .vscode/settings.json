@@ -1,9 +1,10 @@
 {
-  "editor.indentSize": "tabSize",
-  "editor.formatOnSave": true, // 设置保存文件时是否自动格式化，true表示自动格式化
-  "files.eol": "\n",
-  "vetur.format.defaultFormatter.css": "prettier",
-  "vetur.format.defaultFormatter.html": "prettier",
-  "vetur.format.defaultFormatter.js": "prettier",
-  "eslint.enable": true
+	"editor.tabSize": 2,
+	"editor.indentSize": "tabSize",
+	"editor.formatOnSave": true, // 设置保存文件时是否自动格式化，true表示自动格式化
+	"files.eol": "\n",
+	"vetur.format.defaultFormatter.css": "prettier",
+	"vetur.format.defaultFormatter.html": "prettier",
+	"vetur.format.defaultFormatter.js": "prettier",
+	"eslint.enable": true
 }
