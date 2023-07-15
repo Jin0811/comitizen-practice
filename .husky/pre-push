@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo -e '\e[0;32m[HOOKS] pre-push begin\e[0m'
+echo -e '\e[0;32m[HOOKS: pre-push] pre-push\e[0m'

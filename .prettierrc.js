@@ -15,6 +15,6 @@ module.exports = {
 	requirePragma: false, // 指定要使用的解析器，不需要写文件开头的 @prettier
 	insertPragma: false, // 不需要自动在文件开头插入 @prettier
 	proseWrap: "preserve", // 使用默认的折行标准 always\never\preserve
-	htmlWhitespaceSensitivity: "css", // 指定HTML文件的全局空格敏感度 css\strict\ignore
+	htmlWhitespaceSensitivity: "ignore", // 指定HTML文件的全局空格敏感度 css\strict\ignore 建议设置为ignore，这样格式化之后比较美观
 	endOfLine: "lf", // 因为prettier的规范和eslint的换行规则不同，所以这个必须配置。要不然每次打开文件都会有一堆的警告;换行符使用 lf 结尾是 可选值"<auto|lf|crlf|cr
 };

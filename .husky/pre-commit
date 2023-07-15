@@ -1,10 +1,10 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo -e '\e[0;32m[HOOKS] pre-commit begin\e[0m'
+echo -e '\e[0;32m[HOOKS: pre-commit] lint-staged 进行中\e[0m'
 
 # 执行lint-staged，校验暂存区的文件，即每次commit之前，进行eslint校验
 # 此校验不涉及已有代码，只对本此提交的代码进行校验
 npm run lintStaged
 
-echo -e '\e[0;32m[LINT-STAGED] 暂存区文件校验完成\e[0m'
+echo -e '\e[0;32m[HOOKS: pre-commit] lint-staged 校验通过\e[0m'
