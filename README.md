@@ -143,3 +143,26 @@ npm run lintStaged
 ## 2.9 配置 eslint
 
 创建.eslintrc.js 文件，与 package.json 同级，内容参考此项目当中的.eslintrc.js 文件
+
+# 3 scripts 命令介绍
+
+```js
+"scripts": {
+  // 创建husky配置，每次拉取项目，需要先执行此命令
+  "prepare": "npx husky install",
+  // 启动项目
+  "serve": "vue-cli-service serve",
+  // 项目打包
+  "build": "vue-cli-service build",
+  // 检查并且修复eslint报错
+  "fix": "vue-cli-service lint",
+  // 检查eslint报错，不修复
+  "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
+  // 生成约定式提交信息，请使用npm run commit或者git cz来代替git commit命令
+  "commit": "git cz",
+  // 对暂存区的文件进行eslint校验
+  "lintStaged": "lint-staged",
+  // 使用prettier对src下的全部文件进行格式化
+  "prettier": "npx prettier --write src"
+},
+```

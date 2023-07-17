@@ -3,13 +3,13 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
+		"prepare": "npx husky install",
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
 		"fix": "vue-cli-service lint",
 		"lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
 		"commit": "git cz",
 		"lintStaged": "lint-staged",
-		"prepare": "npx husky install",
 		"prettier": "npx prettier --write src"
 	},
 	"dependencies": {
