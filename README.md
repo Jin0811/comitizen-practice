@@ -36,9 +36,10 @@ echo '{"path": "cz-conventional-changelog"}' > ~/.czrc
 // 内容 {"path": "cz-conventional-changelog"}
 
 // 重要的事情说三遍：
-// 注意：当我们使用cz-customizable的时候，我们其实是不需要执行这个命令的
-// 注意：当我们使用cz-customizable的时候，我们其实是不需要执行这个命令的
-// 注意：当我们使用cz-customizable的时候，我们其实是不需要执行这个命令的
+// 注意：当我们使用cz-customizable的时候，我们其实是不需要执行下面这个命令的！
+// 注意：当我们使用cz-customizable的时候，我们其实是不需要执行下面这个命令的！
+// 注意：当我们使用cz-customizable的时候，我们其实是不需要执行下面这个命令的！
+// 备注：cz-customizable是一个Commitizen的插件，它允许你使用自定义的Git提交规范
 
 // 使用这个命令使commitizen支持angular的 Commit message 格式
 // 这个命令会安装cz-conventional-changelog，并且配置commitizen的path
