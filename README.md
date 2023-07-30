@@ -67,6 +67,8 @@ npm install husky --save-dev
 npx husky install
 // 方法二：先配置 package.json, scripts："prepare": "husky install"，再执行以下命令
 npm run prepare
+
+// 注意：建议是在 package.json 当中配置 prepare 命令，prepare 命令会在 npm i 的时候自动执行，比较方便
 ```
 
 ## 2.5 添加 husky 钩子
@@ -149,7 +151,7 @@ npm run lintStaged
 
 ```js
 "scripts": {
-  // 创建husky配置，每次拉取项目，需要先执行此命令
+  // 创建husky配置，prepare 命令会在 npm i 的时候自动执行，比较方便
   "prepare": "npx husky install",
   // 启动项目
   "serve": "vue-cli-service serve",
