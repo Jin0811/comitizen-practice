@@ -1,4 +1,5 @@
 # 注意!!!
+
 `OLD_README.md`文件当中的配置项存在一些坑，尚未填补，请参考`README.md`
 
 留存一份`OLD_README.md`是为了后续找到解决方法了，可以继续完善
@@ -6,12 +7,14 @@
 # Git commit 规范配置
 
 ## 相关教程
+
 - [视频 git commit 最佳实践，commitizen + husky + commitlint 规范化校验](https://www.bilibili.com/video/BV193411C7XE/?spm_id_from=333.337.search-card.all.click&vd_source=3284d439dd5569b325f17bd1d33a1739)
-- [GitHub 上面视频中的代码和README文档](https://github.com/dev-zuo/commitizen-practice-demo)
+- [GitHub 上面视频中的代码和 README 文档](https://github.com/dev-zuo/commitizen-practice-demo)
 - [掘金 2023 年了，还有前端人不知道 commit 规范 ？](https://juejin.cn/post/7212597327579037756#heading-13)
-- [CSDN Git规范介绍](https://blog.csdn.net/qq_39249422/article/details/122984620)
+- [CSDN Git 规范介绍](https://blog.csdn.net/qq_39249422/article/details/122984620)
 
 ## 配置过程
+
 ```js
 // 创建一个vue项目，这里我选择了Default Vue2，自动配置了eslint，创建了git仓库
 // 如果是手动创建的，需要自行初始化git仓库，配置eslint等
