@@ -4,6 +4,12 @@
 	"editor.formatOnSave": true, // 设置保存文件时是否自动格式化
 	"editor.defaultFormatter": "esbenp.prettier-vscode", // 设置编辑器的默认格式化工具
 	"editor.insertSpaces": false, // 设置缩进的格式为Tab，这样新增文件时，文件的默认缩进格式就是Tab
+	// 设置保存的时候，自动修复eslint错误
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true,
+		"eslint.autoFixOnSave": true
+	},
+
 	"files.eol": "\n", // 默认行尾字符
 	"files.encoding": "utf8", // 文件编码格式
 
@@ -14,6 +20,7 @@
 	"eslint.options": {
 		"extensions": [".js", ".vue", ".ts", ".tsx"]
 	}, // 指定eslint所处理的文件的后缀
+
 	// prettier相关配置
 	"[javascript]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
