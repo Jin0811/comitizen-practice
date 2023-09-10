@@ -167,6 +167,8 @@ npm run lintStaged
   "lintStaged": "lint-staged",
   // 使用prettier对src下的全部文件进行格式化
   "prettier": "npx prettier --write src"
+  // 检查src下的stylelint报错，不修复
+  "stylelint": "npx stylelint src/**/*.{scss,less,css,html,vue}"
 },
 ```
 
