@@ -7,6 +7,7 @@
 	// 设置保存的时候，自动修复eslint错误
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": true,
+		"source.fixAll.stylelint": true,
 		"eslint.autoFixOnSave": true
 	},
 
@@ -20,6 +21,9 @@
 	"eslint.options": {
 		"extensions": [".js", ".vue", ".ts", ".tsx"]
 	}, // 指定eslint所处理的文件的后缀
+
+	// stylelint相关配置
+	"stylelint.validate": ["css", "less", "scss", "postcss", "vue"], // 设置stylelint校验的文件类型
 
 	// prettier相关配置
 	"[javascript]": {

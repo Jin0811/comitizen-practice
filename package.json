@@ -10,7 +10,8 @@
 		"lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
 		"commit": "git cz",
 		"lintStaged": "lint-staged",
-		"prettier": "npx prettier --write src"
+		"prettier": "npx prettier --write src",
+		"stylelint": "npx stylelint src/**/*.{scss,less,css,html,vue}"
 	},
 	"dependencies": {
 		"core-js": "^3.8.3",
@@ -31,7 +32,16 @@
 		"eslint-plugin-vue": "^8.0.3",
 		"husky": "^8.0.3",
 		"lint-staged": "^13.2.3",
+		"postcss-html": "^1.5.0",
+		"postcss-scss": "^4.0.8",
 		"prettier": "^2.4.1",
+		"stylelint": "^15.10.3",
+		"stylelint-config-html": "^1.1.0",
+		"stylelint-config-recommended-scss": "^13.0.0",
+		"stylelint-config-recommended-vue": "^1.5.0",
+		"stylelint-config-standard": "^34.0.0",
+		"stylelint-order": "^6.0.3",
+		"stylelint-scss": "^5.1.0",
 		"vue-template-compiler": "^2.6.14"
 	},
 	"config": {
@@ -42,6 +52,9 @@
 	"lint-staged": {
 		"src/**/*.{vue,js,ts,jsx,tsx}": [
 			"eslint"
+		],
+		"src/**/*.{scss,less,css,html,vue}": [
+			"stylelint"
 		]
 	},
 	"eslintConfig": {

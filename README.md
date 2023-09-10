@@ -169,3 +169,54 @@ npm run lintStaged
   "prettier": "npx prettier --write src"
 },
 ```
+
+# 4 Vue 项目当中集成 Stylelint
+
+## 4.1 安装相关开发依赖
+
+注意：
+
+- SCSS 和 LESS 所需的依赖不相同
+- stylelint 15 及以上版本内部已经进行了处理，不再需要 stylelint-config-prettier
+
+```js
+// 如果项目当中使用的是SCSS，则安装以下依赖：
+stylelint@15.10.3 // Stylelint 核心包
+stylelint-config-html@1.1.0 // Stylelint 的可共享 HTML 配置
+stylelint-config-recommended-scss@13.0.0 // SCSS 文件规则检查
+stylelint-config-recommended-vue@1.5.0 // Vue 文件规则检查
+stylelint-config-standard@34.0.0 // 共享的 CSS 书写规范（标准）
+stylelint-order@6.0.3 // CSS 样式排序
+stylelint-scss@^5.1.0 // SCSS 预设规则
+postcss-html@1.5.0 // 用于解析 HTML（和类似 HTML）的 PostCSS 语法，可以用于识别 HTML 或者 Vue 中的样式
+postcss-scss@4.0.8 // PostCSS 的一个 SCSS 语法解析器
+
+// 如果项目当中使用的是LESS，则安装以下依赖：
+stylelint@15.10.3
+stylelint-config-html@1.1.0
+stylelint-config-recommended-less@2.0.0
+stylelint-config-recommended-vue@1.5.0
+stylelint-config-standard@34.0.0
+stylelint-order@6.0.3
+postcss-html@1.5.0
+postcss-less@6.0.0
+```
+
+## 4.2 配置 VsCode
+
+在 .vscode/settings.json 当中添加以下配置
+
+```json
+{
+	// 设置stylelint校验的文件类型
+	"stylelint.validate": ["css", "less", "scss", "postcss", "vue"],
+	// 设置保存的时候进行格式化
+	"editor.formatOnSave": true,
+	// 设置 prettier 为默认格式化程序
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	// 保存时使用 styleLint 修复可修复错误
+	"editor.codeActionsOnSave": {
+		"source.fixAll.stylelint": true
+	}
+}
+```
