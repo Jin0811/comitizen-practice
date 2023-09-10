@@ -204,7 +204,11 @@ postcss-html@1.5.0
 postcss-less@6.0.0
 ```
 
-## 4.2 配置 VsCode
+## 4.2 配置 stylelint
+
+stylelint 的配置文件分为 .stylelintrc.js 和 .stylelintignore，详细内容请参考此项目根目录下的同名文件
+
+## 4.3 配置 VsCode
 
 在 .vscode/settings.json 当中添加以下配置
 
