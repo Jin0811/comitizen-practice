@@ -32,7 +32,7 @@ npm install -g commitizen cz-conventional-changelog
 echo '{"path": "cz-conventional-changelog"}' > ~/.czrc
 
 // 手动创建：这个配置文件也可以手动进行创建，手动创建的时候，编码也请选择utf-8
-// 路径 C:\Users\你的电脑用户名\.czrc
+// 路径 C:/Users/你的电脑用户名/.czrc
 // 内容 {"path": "cz-conventional-changelog"}
 
 // 重要的事情说三遍：
@@ -120,7 +120,7 @@ npm install cz-customizable -D
 // 第一种：eslint方式，会对整个项目进行eslint校验
 // 在package.json的scripts中添加：
 "lint": "vue-cli-service lint"
-// 在.husky\pre-push文件的最后一行添加：
+// 在.husky/pre-push文件的最后一行添加：
 npm run lint
 
 // 第二种：lint-staged方式，只会对本次提交的文件进行eslint校验
@@ -176,9 +176,9 @@ npm run lintStaged
 },
 ```
 
-# 4 Vue 项目当中集成 Stylelint
+## 4 Vue 项目当中集成 Stylelint
 
-## 4.1 安装相关开发依赖
+### 4.1 安装相关开发依赖
 
 注意：
 
@@ -208,11 +208,11 @@ postcss-html@1.5.0
 postcss-less@6.0.0
 ```
 
-## 4.2 配置 stylelint
+### 4.2 配置 stylelint
 
 stylelint 的配置文件分为 .stylelintrc.js 和 .stylelintignore，详细内容请参考此项目根目录下的同名文件
 
-## 4.3 配置 VsCode
+### 4.3 配置 VsCode
 
 在 .vscode/settings.json 当中添加以下配置
 
@@ -231,7 +231,7 @@ stylelint 的配置文件分为 .stylelintrc.js 和 .stylelintignore，详细内
 }
 ```
 
-## 4.4 配置当中的 “坑”
+### 4.4 配置当中的 “坑”
 
 1. 安装了依赖并且进行了配置，VsCode 当中 vue 文件模板语法报错
 
@@ -250,7 +250,7 @@ stylelint 的配置文件分为 .stylelintrc.js 和 .stylelintignore，详细内
    ```js
    // 报错信息
    TypeError: Class extends value undefined is not a constructor or null
-   at Object.<anonymous> (D:\TestPlace\demo\node_modules\postcss-scss\lib\nested-declaration.js:3:33)
+   at Object.<anonymous> (D:/TestPlace/demo/node_modules/postcss-scss/lib/nested-declaration.js:3:33)
    at Module._compile (node:internal/modules/cjs/loader:1165:14)
    at Module._extensions..js (node:internal/modules/cjs/loader:1220:10)
    at Module.load (node:internal/modules/cjs/loader:1035:32)
@@ -258,7 +258,7 @@ stylelint 的配置文件分为 .stylelintrc.js 和 .stylelintignore，详细内
    at c._load (node:electron/js2c/asar_bundle:5:13343)
    at Module.require (node:internal/modules/cjs/loader:1059:19)
    at require (node:internal/modules/cjs/helpers:102:18)
-   at Object.<anonymous> (D:\TestPlace\demo\node_modules\postcss-scss\lib\scss-parser.js:4:25)
+   at Object.<anonymous> (D:/TestPlace/demo/node_modules/postcss-scss/lib/scss-parser.js:4:25)
    at Module._compile (node:internal/modules/cjs/loader:1165:14)
    ```
 
