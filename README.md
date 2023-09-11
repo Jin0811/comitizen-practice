@@ -226,3 +226,36 @@ stylelint 的配置文件分为 .stylelintrc.js 和 .stylelintignore，详细内
 	}
 }
 ```
+
+## 4.4 配置当中的 “坑”
+
+1. 安装了依赖并且进行了配置，VsCode 当中 vue 文件模板语法报错
+
+   ```json
+   // VsCode 当中 vue 文件有以下报错：
+   Stylelint: Unknown word (CssSyntaxError)
+
+   // 检查 VsCode 的 settings.json 文件，用户和工作区的配置文件都检查一下，是否有以下配置，有的话，删除即可
+   {
+     "stylelint.config":{}
+   }
+   ```
+
+2. 保存文件时 stylelint 无法自动修复样式，并且报错
+
+   ```js
+   // 报错信息
+   TypeError: Class extends value undefined is not a constructor or null
+   at Object.<anonymous> (D:\TestPlace\demo\node_modules\postcss-scss\lib\nested-declaration.js:3:33)
+   at Module._compile (node:internal/modules/cjs/loader:1165:14)
+   at Module._extensions..js (node:internal/modules/cjs/loader:1220:10)
+   at Module.load (node:internal/modules/cjs/loader:1035:32)
+   at Module._load (node:internal/modules/cjs/loader:876:12)
+   at c._load (node:electron/js2c/asar_bundle:5:13343)
+   at Module.require (node:internal/modules/cjs/loader:1059:19)
+   at require (node:internal/modules/cjs/helpers:102:18)
+   at Object.<anonymous> (D:\TestPlace\demo\node_modules\postcss-scss\lib\scss-parser.js:4:25)
+   at Module._compile (node:internal/modules/cjs/loader:1165:14)
+   ```
+
+   出现上面的报错，可以尝试执行 `npm i postcss -D`，安装完成之后，重启 vscode 即可
