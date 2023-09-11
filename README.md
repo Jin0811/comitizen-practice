@@ -1,4 +1,4 @@
-# Git commit 规范配置
+# 1 Git Commit | ESlint | Prettier 配置
 
 ## 1 相关教程
 
@@ -9,7 +9,7 @@
 
 ## 2 配置过程
 
-## 2.1 创建 vue 项目
+### 2.1 创建 vue 项目
 
 创建一个 vue 项目，这里我选择了 Default Vue2，自动配置了 eslint，创建了 git 仓库。如果是手动创建的，需要自行初始化 git 仓库，配置 eslint 等第三方库
 
@@ -17,13 +17,13 @@
 vue create comitizen-practice
 ```
 
-## 2.2 全局安装规范化提交插件 commitizen cz-conventional-changelog
+### 2.2 全局安装规范化提交插件 commitizen cz-conventional-changelog
 
 ```js
 npm install -g commitizen cz-conventional-changelog
 ```
 
-## 2.3 生成配置文件
+### 2.3 生成配置文件
 
 配置文件不配置的话，会无法执行`git cz`命令
 
@@ -55,7 +55,7 @@ commitizen init cz-conventional-changelog --save --save-exact
 }
 ```
 
-## 2.4 husky 安装和配置
+### 2.4 husky 安装和配置
 
 ```js
 // 安装 husky
@@ -71,7 +71,7 @@ npm run prepare
 // 注意：建议是在 package.json 当中配置 prepare 命令，prepare 命令会在 npm i 的时候自动执行，比较方便
 ```
 
-## 2.5 添加 husky 钩子
+### 2.5 添加 husky 钩子
 
 ```js
 // 添加 pre-commit 钩子
@@ -82,7 +82,7 @@ npx husky add .husky/pre-push "echo '[HOOS] pre-push begin'"
 npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
 ```
 
-## 2.6 commitlint 安装配置
+### 2.6 commitlint 安装配置
 
 ```js
 npm install -D @commitlint/cli @commitlint/config-conventional
@@ -91,7 +91,7 @@ npm install -D @commitlint/cli @commitlint/config-conventional
 module.exports = { extends: ["@commitlint/config-conventional"] }
 ```
 
-## 2.7 自定义提交说明
+### 2.7 自定义提交说明
 
 注意：这里存在一些坑，尚未解决，当配置了`cz-customizable`和`commitlint-config-cz`之后，执行`git cz`可以有漂亮的图标和汉字提示，但是却失去了对`git commit -m "信息"`的拦截，导致了可以提交不规范的 commit 信息，失去了基本功能，因此，暂时放弃此方案，采用另外一种方案，可以进行拦截，且可以进行汉字提示，只是没有漂亮的图标
 
@@ -112,7 +112,7 @@ npm install cz-customizable -D
 },
 ```
 
-## 2.8 配置代码在 push 之前进行 eslint 校验
+### 2.8 配置代码在 push 之前进行 eslint 校验
 
 ```js
 // 这里分为两种eslint校验，eslint和lint-staged
@@ -143,11 +143,15 @@ npm install lint-staged -D
 npm run lintStaged
 ```
 
-## 2.9 配置 eslint
+### 2.9 配置 eslint
 
-创建.eslintrc.js 文件，与 package.json 同级，内容参考此项目当中的.eslintrc.js 文件
+创建 .eslintrc.js 文件，与 package.json 同级，内容参考此项目中的同名文件
 
-# 3 scripts 命令介绍
+### 2.10 配置 prettier
+
+创建 .prettierrc.js 文件和 .prettierignore 文件 ，与 package.json 同级，内容参考此项目中的同名文件
+
+## 3 scripts 命令介绍
 
 ```js
 "scripts": {
@@ -172,9 +176,9 @@ npm run lintStaged
 },
 ```
 
-# 4 Vue 项目当中集成 Stylelint
+# 2 Vue 项目当中集成 Stylelint
 
-## 4.1 安装相关开发依赖
+## 2.1 安装相关开发依赖
 
 注意：
 
@@ -204,15 +208,15 @@ postcss-html@1.5.0
 postcss-less@6.0.0
 ```
 
-## 4.2 配置 stylelint
+## 2.2 配置 stylelint
 
 stylelint 的配置文件分为 .stylelintrc.js 和 .stylelintignore，详细内容请参考此项目根目录下的同名文件
 
-## 4.3 配置 VsCode
+## 2.3 配置 VsCode
 
 在 .vscode/settings.json 当中添加以下配置
 
-```json
+```js
 {
 	// 设置stylelint校验的文件类型
 	"stylelint.validate": ["css", "less", "scss", "postcss", "vue"],
@@ -227,11 +231,11 @@ stylelint 的配置文件分为 .stylelintrc.js 和 .stylelintignore，详细内
 }
 ```
 
-## 4.4 配置当中的 “坑”
+## 2.4 配置当中的 “坑”
 
 1. 安装了依赖并且进行了配置，VsCode 当中 vue 文件模板语法报错
 
-   ```json
+   ```js
    // VsCode 当中 vue 文件有以下报错：
    Stylelint: Unknown word (CssSyntaxError)
 
