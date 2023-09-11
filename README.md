@@ -1,4 +1,4 @@
-# 1 Git Commit | ESlint | Prettier 配置
+# Git Commit | ESlint | Prettier | Stylelint 配置
 
 ## 1 相关教程
 
@@ -176,9 +176,9 @@ npm run lintStaged
 },
 ```
 
-# 2 Vue 项目当中集成 Stylelint
+# 4 Vue 项目当中集成 Stylelint
 
-## 2.1 安装相关开发依赖
+## 4.1 安装相关开发依赖
 
 注意：
 
@@ -208,11 +208,11 @@ postcss-html@1.5.0
 postcss-less@6.0.0
 ```
 
-## 2.2 配置 stylelint
+## 4.2 配置 stylelint
 
 stylelint 的配置文件分为 .stylelintrc.js 和 .stylelintignore，详细内容请参考此项目根目录下的同名文件
 
-## 2.3 配置 VsCode
+## 4.3 配置 VsCode
 
 在 .vscode/settings.json 当中添加以下配置
 
@@ -231,7 +231,7 @@ stylelint 的配置文件分为 .stylelintrc.js 和 .stylelintignore，详细内
 }
 ```
 
-## 2.4 配置当中的 “坑”
+## 4.4 配置当中的 “坑”
 
 1. 安装了依赖并且进行了配置，VsCode 当中 vue 文件模板语法报错
 
