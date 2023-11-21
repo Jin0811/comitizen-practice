@@ -143,13 +143,25 @@ npm install lint-staged -D
 npm run lintStaged
 ```
 
-### 2.9 配置 eslint
+### 2.9 配置 eslint 和 prettier
 
-创建 .eslintrc.js 文件，与 package.json 同级，内容参考此项目中的同名文件
+- 安装相关依赖，一般情况下，如果是使用 vuecli 创建的项目，选择了 eslint 和 prettier，下面的依赖是自动安装的，如果没有则需要自行安装一下
 
-### 2.10 配置 prettier
+  ```js
+  npm i eslint@^7.32.0 -D // eslint核心包
+  npm i eslint-config-prettier@^8.8.0 -D // 关闭eslint当中不必要的或者可能和Prettier冲突的规则
+  npm i eslint-plugin-prettier@^4.0.0 -D // 把Prettier配置成ESLint的一个插件，让其当做一个linter规则来运行
+  npm i eslint-plugin-vue@^8.0.3 -D // vue官方的eslint插件，提供了与vue相关的预设
+  npm i prettier@^2.4.1 -D // prettier核心包
+  npm i @babel/eslint-parser@^7.12.16 -D // ESLint解析器，用于将JS代码解析为抽象语法树，并使用ESLint来检查代码
+  ```
 
-创建 .prettierrc.js 文件和 .prettierignore 文件 ，与 package.json 同级，内容参考此项目中的同名文件
+- 创建相关配置文件，配置文件的内容和路径与当前项目的配置文件相同
+
+  - `.eslintrc.js` eslint 配置
+  - `.prettierignore` prettier 忽略配置
+  - `.prettierrc.js` prettier 配置
+  - `.vscode\settings.json` vscode 配置
 
 ## 3 scripts 命令介绍
 
@@ -187,6 +199,7 @@ npm run lintStaged
 
 ```js
 // 如果项目当中使用的是SCSS，则安装以下依赖：
+// 注意：下面的依赖全部都是开发依赖，安装时请添加 -D 标识符
 stylelint@15.10.3 // Stylelint 核心包
 stylelint-config-html@1.1.0 // Stylelint 的可共享 HTML 配置
 stylelint-config-recommended-scss@13.0.0 // SCSS 文件规则检查
