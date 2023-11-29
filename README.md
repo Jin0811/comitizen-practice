@@ -19,6 +19,10 @@ vue create comitizen-practice
 
 ### 2.2 全局安装规范化提交插件 commitizen cz-conventional-changelog
 
+commitizen 是一个基于命令行的交互式工具，它可以帮助开发者规范化提交 Git 提交信息，符合 Angular Commit Message Conventions 的规范，从而更好地管理代码变更历史
+
+cz-conventional-changelog 是 commitizen 的一个适配器，它实现了符合约定式提交（Conventional Commits）规范的提交消息。该规范定义了提交消息的格式和结构，并推荐了一些常用的提交类型和范围
+
 ```js
 npm install -g commitizen cz-conventional-changelog
 ```
